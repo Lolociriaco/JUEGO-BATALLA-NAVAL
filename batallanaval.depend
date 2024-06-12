@@ -10,7 +10,7 @@
 1715013564 d:\documentos\programacion bro\batallanaval\iu.h
 	<iostream>
 
-1717725739 source:d:\documentos\utn\programacion\juego-batalla-naval\main.cpp
+1718215624 source:d:\documentos\utn\programacion\juego-batalla-naval\main.cpp
 	<iostream>
 	<chrono>
 	<thread>
@@ -24,7 +24,7 @@
 1715916210 d:\documentos\utn\programacion\juego-batalla-naval\funcionesult.h
 	<iostream>
 
-1718212142 d:\documentos\utn\programacion\juego-batalla-naval\iu.h
+1718215783 d:\documentos\utn\programacion\juego-batalla-naval\iu.h
 	<iostream>
 	"rlutil.h"
 	<chrono>
@@ -37,11 +37,11 @@
 1715892304 d:\documentos\utn\programacion\juego-batalla-naval\guerra.h
 	<iostream>
 
-1718207827 d:\documentos\utn\programacion\juego-batalla-naval\funcioncarga.h
+1718215097 d:\documentos\utn\programacion\juego-batalla-naval\funcioncarga.h
 	<iostream>
 	"rlutil.h"
 
-1717725739 d:\documentos\utn\programacion\juego-batalla-naval\funcionproceso.h
+1718215471 d:\documentos\utn\programacion\juego-batalla-naval\funcionproceso.h
 	<iostream>
 
 1717725739 d:\documentos\utn\programacion\juego-batalla-naval\funcionesextras.h

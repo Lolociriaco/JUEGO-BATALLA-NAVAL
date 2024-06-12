@@ -58,9 +58,9 @@ void felicitacionGanador(string ganador, int puntos)
     {
         rlutil::locate(48,16);
         cout<<YELLOW<<"PUNTOS TOTALES: "<<x<<RESET;
-        this_thread::sleep_for(chrono::milliseconds(15));
+        this_thread::sleep_for(chrono::milliseconds(3));
     }
-    for(int y = 0; y <= 7; y ++)
+    for(int y = 0; y <= 8; y ++)
     {
         rlutil::locate(48,16);
         cout<<NEGRO<<"PUNTOS TOTALES: "<<x<<RESET;

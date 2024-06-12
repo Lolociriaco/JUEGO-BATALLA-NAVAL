@@ -125,8 +125,8 @@ void pedirBarcos(int tamBarco,char (&mPlayer)[7][7], string jugador)
                     avisoCargaFlota(jugador);
                     imprimirTablero(mPlayer);
 
-                    rlutil::locate(30,8);
-                    cout<<ROJO<<"------->> ESTE ESPACIO YA ESTA ASIGNADO, TEN MAS CUIDADO MARINERO! <<-------"<<RESET<<endl;
+                    rlutil::locate(35,8);
+                    cout<<ROJO<<"ESTE ESPACIO YA ESTA ASIGNADO, TEN MAS CUIDADO MARINERO!"<<RESET<<endl;
                     rlutil::locate(40,28);
                     cout<<"DE QUE MANERA QUIERES POSICIONAR ESTE BARCO?";
                     direccion = botones(3);
@@ -135,20 +135,6 @@ void pedirBarcos(int tamBarco,char (&mPlayer)[7][7], string jugador)
 
                     banderaEspacioError = 0;
                     break;
-                }
-                else if(fila+cantidadCasilleros > 8)
-                {
-                    system("cls");
-                    avisoCargaFlota(jugador);
-                    imprimirTablero(mPlayer);
-
-                    rlutil::locate(30,8);
-                    cout<<ROJO<<"------->> ESTE ESPACIO NO EXISTE, TEN MAS CUIDADO MARINERO! <<-------"<<RESET<<endl<<endl;
-                    rlutil::locate(40,28);
-                    cout<<"DE QUE MANERA QUIERES POSICIONAR ESTE BARCO?";
-                    direccion = botones(3);
-
-                    asignacionMatrizCarga(fila, columna, mPlayer,direccion, cantidadCasilleros);
                 }
                 else
                 {

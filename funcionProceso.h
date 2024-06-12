@@ -63,7 +63,7 @@ int imprimirComienzoBatalla(int NroJugador,string jugador, char (&matrizVisual)[
         {
             rlutil::locate(46,29);
             cout<<GREEN<<"Cantidad de Aciertos "<<jugador<<": "<<contadorAciertosN2<<"/11"<<endl<<RESET;
-            rlutil::locate(10,23);
+            rlutil::locate(14,23);
             cout<<YELLOW<<"Pts Totales: "<<acuPuntosP2<<RESET;
         }
 
@@ -87,7 +87,8 @@ int imprimirComienzoBatalla(int NroJugador,string jugador, char (&matrizVisual)[
             }
             else //ALERTO DEL ERROR Y PIDO LOS DATOS NUEVAMENTE
             {
-                cout<<endl<<RED<<"ESTA POSICION YA A SIDO BOMBARDEADA SOLDADO, TENGA MAS CUIDADO"<<RESET<<endl<<"Ingrese una coordenada valida a atacar: ";
+                rlutil::locate(31,31);
+                cout<<RED<<"ESTA POSICION YA A SIDO BOMBARDEADA SOLDADO, TENGA MAS CUIDADO"<<RESET;
                 asignacionMatrizProceso(filaDisparo,columnaDisparo,matrizVisual);
             }
 
