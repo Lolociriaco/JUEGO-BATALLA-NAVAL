@@ -1,14 +1,3 @@
-#include <iostream>
-#include "rlutil.h"
-#include <chrono>   // Para sleep
-#include <thread>   // Para sleep
-#include <iomanip> // Para setw
-#define R   "\033[0m"  //RESETEAR
-#define BL    "\033[34m"  //AZUL
-#define B   "\033[0;38;2;139;69;19m"  //MARRON
-#define ROJO  "\033[31m" //ROJO
-#define YELLOW "\033[33m" // Amarillo
-#define NEGRO "\x1B[30m"	 // Amarillo
 
 using namespace std;
 
