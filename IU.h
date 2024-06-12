@@ -36,7 +36,7 @@ int ejecMenu();
 
 void colorOpcionesMenu(string opcion, int posX, int posY, bool seleccionado);
 
-int colorTablero(char (&matriz)[7][7]);
+int colorTablero(char (&matriz)[7][7], bool direccion, int tamBarco);
 
 void colorCasillerosTablero(int posX, int posY, bool seleccionado, char ocupado);
 
@@ -371,12 +371,15 @@ int confCargaAutomatica(string jugador)
 
 
 
-int colorTablero(char (&matriz)[7][7]) //FUNCION PARA PODER ELEGIR LA POSICION CON LAS FLECHAS
+int colorTablero(char (&matriz)[7][7], bool direccion, int tamBarco) //FUNCION PARA PODER ELEGIR LA POSICION CON LAS FLECHAS
 {
     int pos = 0;
     int posCopy;
     int extra=0;
     int filas, columna;
+    int casilleroSeleccionado=0;
+    int xSeleccionada;
+    int iSeleccionada;
 
     while(true) //WHILE PARA MOVERME POR EL MENU HASTA QUE SE PRESIONE ENTER.
     {
@@ -389,12 +392,31 @@ int colorTablero(char (&matriz)[7][7]) //FUNCION PARA PODER ELEGIR LA POSICION C
             for(int x = 50; x <= 74; x += 4)
             {
                 colorCasillerosTablero(x, i, pos == extra, matriz[filas][columna]);
+                if(pos == extra)
+                {
+                    casilleroSeleccionado = pos;
+                    xSeleccionada = x;
+                    iSeleccionada = i;
+                }
                 extra++;
-
                 columna++;
             }
             filas++;
 
+        }
+        if(direccion == 0)
+        {
+            for(int x = xSeleccionada;x <= xSeleccionada+(tamBarco-1)*4; x+=4)
+            {
+                colorCasillerosTablero(x,iSeleccionada, true, '-');
+            }
+        }
+        else
+        {
+            for(int i = iSeleccionada;i <= iSeleccionada+(tamBarco-1)*2; i+=2)
+            {
+                colorCasillerosTablero(xSeleccionada,i, true, '-');
+            }
         }
 
         rlutil::hidecursor();
@@ -406,6 +428,9 @@ int colorTablero(char (&matriz)[7][7]) //FUNCION PARA PODER ELEGIR LA POSICION C
             return pos;
             break;
         }
+
+
+        case 97: // IZQUIERDA
         case 16: // IZQUIERDA
         {
             pos--;
@@ -413,41 +438,78 @@ int colorTablero(char (&matriz)[7][7]) //FUNCION PARA PODER ELEGIR LA POSICION C
             {
                 pos = 0;
             }
-            break;
-        }
-
-        case 97: // IZQUIERDA
-        {
-            pos--;
-            if(pos<0)
+            else if(direccion == 0 && pos == 6)
             {
-                pos = 0;
+                pos = 7;
             }
-            break;
-        }
-
-        case 100: // DERECHA
-        {
-            pos++;
-            if(pos>48)
+            else if(direccion == 0 && pos == 13)
             {
-                pos = 48;
+                pos = 14;
             }
+            else if(direccion == 0 && pos == 20)
+            {
+                pos = 21;
+            }
+            else if(direccion == 0 && pos == 27)
+            {
+                pos = 28;
+            }
+            else if(direccion == 0 && pos == 34)
+            {
+                pos = 35;
+            }
+            else if(direccion == 0 && pos == 41)
+            {
+                pos = 42;
+            }
+
             break;
         }
 
 
         case 17: //DERECHA
+        case 100: // DERECHA
         {
+            posCopy = pos;
             pos++;
-            if(pos>48)
+            if(direccion == 0 && pos + tamBarco == 8)
             {
-                pos = 48;
+                pos = posCopy;
             }
+            else if(direccion == 0 && pos + tamBarco == 15)
+            {
+                pos = posCopy;
+            }
+            else if(direccion == 0 && pos + tamBarco == 22)
+            {
+                pos = posCopy;
+            }
+            else if(direccion == 0 && pos + tamBarco == 29)
+            {
+                pos = posCopy;
+            }
+            else if(direccion == 0 && pos + tamBarco == 36)
+            {
+                pos = posCopy;
+            }
+            else if(direccion == 0 && pos + tamBarco == 43)
+            {
+                pos = posCopy;
+            }
+            else if(direccion == 0 && pos + tamBarco == 50)
+            {
+                pos = posCopy;
+            }
+            else if(direccion == 1 && pos + (tamBarco-1)*7 > 48)
+            {
+                pos = posCopy;
+            }
+
             break;
         }
 
 
+        case 14: // ARRIBA
         case 119: // ARRIBA
             posCopy = pos;
             pos -= 7;
@@ -458,16 +520,7 @@ int colorTablero(char (&matriz)[7][7]) //FUNCION PARA PODER ELEGIR LA POSICION C
             break;
 
 
-        case 14: // ARRIBA
-            posCopy = pos;
-            pos -= 7;
-            if(pos < 0)
-            {
-                pos = posCopy;
-            }
-            break;
-
-
+        case 115: // ABAJO
         case 15: // ABAJO
             posCopy = pos;
             pos += 7;
@@ -475,13 +528,7 @@ int colorTablero(char (&matriz)[7][7]) //FUNCION PARA PODER ELEGIR LA POSICION C
             {
                 pos = posCopy;
             }
-            break;
-
-
-        case 115: // ABAJO
-            posCopy = pos;
-            pos += 7;
-            if(pos>48)
+            else if(direccion == 1 && pos + (tamBarco-1)*7 > 48)
             {
                 pos = posCopy;
             }
@@ -499,7 +546,7 @@ void colorCasillerosTablero(int posX, int posY, bool seleccionado, char ocupado)
     {
         rlutil::setBackgroundColor(rlutil::GREEN);
         rlutil::locate(posX,posY);
-        cout <<"> <"<<endl;
+        cout <<" - "<<endl;
     }
     else if(ocupado != '-')
     {

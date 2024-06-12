@@ -13,9 +13,9 @@ void imprimirTablero(char (&mPlayer)[7][7]);
 
 void avisoCargaFlota(string nombreJugador);
 
-void asignacionMatrizCarga(int &fila, int &columna,char (&matriz)[7][7]);
+void asignacionMatrizCarga(int &fila, int &columna,char (&matriz)[7][7], bool direccion, int tamBarco);
 
-int colorTablero(char (&matriz)[7][7]);
+int colorTablero(char (&matriz)[7][7],bool direccion, int tamBarco);
 
 ///FUNCIONES:
 
@@ -66,7 +66,7 @@ void pedirBarcos(int tamBarco,char (&mPlayer)[7][7], string jugador)
     cout<<"DE QUE MANERA QUIERES POSICIONAR ESTE BARCO?";
     direccion = botones(3);
 
-    asignacionMatrizCarga(fila, columna, mPlayer);
+    asignacionMatrizCarga(fila, columna, mPlayer, direccion, cantidadCasilleros);
 
     //--> VALIDACION DE POSICION INGRESADA TANTO SI ES MAYOR A SIETE O SI ESTA REPETIDA
 
@@ -91,7 +91,7 @@ void pedirBarcos(int tamBarco,char (&mPlayer)[7][7], string jugador)
                     cout<<"DE QUE MANERA QUIERES POSICIONAR ESTE BARCO?";
                     direccion = botones(3);
 
-                    asignacionMatrizCarga(fila, columna,mPlayer);
+                    asignacionMatrizCarga(fila, columna,mPlayer,direccion, cantidadCasilleros);
                     banderaEspacioError = 0;
                     break;
                 }
@@ -107,7 +107,7 @@ void pedirBarcos(int tamBarco,char (&mPlayer)[7][7], string jugador)
                     cout<<"DE QUE MANERA QUIERES POSICIONAR ESTE BARCO?";
                     direccion = botones(3);
 
-                    asignacionMatrizCarga(fila, columna,mPlayer);
+                    asignacionMatrizCarga(fila, columna,mPlayer,direccion, cantidadCasilleros);
                 }
                 else
                 {
@@ -131,7 +131,7 @@ void pedirBarcos(int tamBarco,char (&mPlayer)[7][7], string jugador)
                     cout<<"DE QUE MANERA QUIERES POSICIONAR ESTE BARCO?";
                     direccion = botones(3);
 
-                    asignacionMatrizCarga(fila, columna, mPlayer);
+                    asignacionMatrizCarga(fila, columna, mPlayer,direccion, cantidadCasilleros);
 
                     banderaEspacioError = 0;
                     break;
@@ -148,7 +148,7 @@ void pedirBarcos(int tamBarco,char (&mPlayer)[7][7], string jugador)
                     cout<<"DE QUE MANERA QUIERES POSICIONAR ESTE BARCO?";
                     direccion = botones(3);
 
-                    asignacionMatrizCarga(fila, columna, mPlayer);
+                    asignacionMatrizCarga(fila, columna, mPlayer,direccion, cantidadCasilleros);
                 }
                 else
                 {
@@ -186,10 +186,10 @@ void pedirBarcos(int tamBarco,char (&mPlayer)[7][7], string jugador)
 
 
 
-void asignacionMatrizCarga(int &fila, int &columna, char (&matriz)[7][7])
+void asignacionMatrizCarga(int &fila, int &columna, char (&matriz)[7][7], bool direccion, int tamBarco)
 {
     int casilla;
-    casilla = colorTablero(matriz)+1;
+    casilla = colorTablero(matriz,direccion,tamBarco)+1;
     if(casilla <= 7)
     {
         fila = 1;
