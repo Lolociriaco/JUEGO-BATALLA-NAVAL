@@ -51,15 +51,6 @@ int procesoColorTablero(char (&matriz)[7][7]) //FUNCION PARA PODER ELEGIR LA POS
             break;
         }
         case 16: // IZQUIERDA
-        {
-            pos--;
-            if(pos<0)
-            {
-                pos = 0;
-            }
-            break;
-        }
-
         case 97: // IZQUIERDA
         {
             pos--;
@@ -71,16 +62,6 @@ int procesoColorTablero(char (&matriz)[7][7]) //FUNCION PARA PODER ELEGIR LA POS
         }
 
         case 100: // DERECHA
-        {
-            pos++;
-            if(pos>48)
-            {
-                pos = 48;
-            }
-            break;
-        }
-
-
         case 17: //DERECHA
         {
             pos++;
@@ -93,15 +74,6 @@ int procesoColorTablero(char (&matriz)[7][7]) //FUNCION PARA PODER ELEGIR LA POS
 
 
         case 119: // ARRIBA
-            posCopy = pos;
-            pos -= 7;
-            if(pos < 0)
-            {
-                pos = posCopy;
-            }
-            break;
-
-
         case 14: // ARRIBA
             posCopy = pos;
             pos -= 7;
@@ -113,15 +85,6 @@ int procesoColorTablero(char (&matriz)[7][7]) //FUNCION PARA PODER ELEGIR LA POS
 
 
         case 15: // ABAJO
-            posCopy = pos;
-            pos += 7;
-            if(pos>48)
-            {
-                pos = posCopy;
-            }
-            break;
-
-
         case 115: // ABAJO
             posCopy = pos;
             pos += 7;
@@ -264,15 +227,6 @@ bool botones(int opcion)
             break;
         }
         case 16: // IZQUIERDA
-        {
-            pos--;
-            if(pos<0)
-            {
-                pos = 0;
-            }
-            break;
-        }
-
         case 97: // IZQUIERDA
         {
             pos--;
@@ -284,16 +238,6 @@ bool botones(int opcion)
         }
 
         case 100: // DERECHA
-        {
-            pos++ ;
-            if(pos>1)
-            {
-                pos = 1;
-            }
-            break;
-        }
-
-
         case 17: //DERECHA
         {
             pos++;
