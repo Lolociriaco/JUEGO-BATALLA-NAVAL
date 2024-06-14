@@ -121,16 +121,8 @@ int ejecMenu()
             }
             break;
         }
+            
         case 16: // IZQUIERDA
-        {
-            pos-=40;
-            if(pos<8)
-            {
-                pos = 0;
-            }
-            break;
-        }
-
         case 97: // IZQUIERDA
         {
             pos-=40;
@@ -142,16 +134,6 @@ int ejecMenu()
         }
 
         case 100: // DERECHA
-        {
-            pos+= 40;
-            if(pos>80)
-            {
-                pos = 80;
-            }
-            break;
-        }
-
-
         case 17: //DERECHA
         {
             pos+=40;
@@ -305,14 +287,14 @@ void cartelReglas()
     cout <<endl<<ROJO<< "    1. REGLAS DEL JUEGO:"<<R<<endl;
     cout << "       - Cada jugador coloca sus barcos en un tablero de 7x7 casilleros."<<endl;
     cout << "       - Los barcos no pueden superponerse ni colocarse en diagonal."<<endl;
-    cout << "       - Los barcos son de tres distintos tamaños: 2, 3 y 4 casillas."<<endl;
-    cout << "       - Los jugadores se turnan para intentar adivinar la ubicación de los barcos del oponente."<<endl;
+    cout << "       - Los barcos son de tres distintos tamaÃ±os: 2, 3 y 4 casillas."<<endl;
+    cout << "       - Los jugadores se turnan para intentar adivinar la ubicaciÃ³n de los barcos del oponente."<<endl;
     cout << "       - Si un jugador derriva un barco, puede continuar disparando hasta que erre su tiro."<<endl;
     cout << "       - Gana el jugador que hunda todos los barcos del oponente primero."<<endl<<endl;
     cout <<ROJO<< "   2. OBJETIVOS DEL JUEGO:"<<R<<endl;
-    cout << "       - Hundir todos los barcos del oponente antes de que él hunda los tuyos."<<endl;
-    cout << "       - Utilizar estrategia y deducción para adivinar la ubicación de los barcos enemigos."<<endl;
-    cout << "       - Proteger tus propios barcos y tratar de engañar al oponente con tu disposición."<<endl<<endl;
+    cout << "       - Hundir todos los barcos del oponente antes de que Ã©l hunda los tuyos."<<endl;
+    cout << "       - Utilizar estrategia y deducciÃ³n para adivinar la ubicaciÃ³n de los barcos enemigos."<<endl;
+    cout << "       - Proteger tus propios barcos y tratar de engaÃ±ar al oponente con tu disposiciÃ³n."<<endl<<endl;
     cout <<ROJO<< "   3. DETALLES:"<<R<<endl;
     cout << "       - Los barcos son cargados de IZQUIERDA A DERECHA O DE ARRIBA HACIA ABAJO segun haya ingresado antes de ingresar \n         las coordenadas."<<endl;
     cout << "         Tenga esto en cuenta ya que si el barco esta mal posicionado, el juego no lo dejara utilizar esa posicion."<<endl;
@@ -341,17 +323,17 @@ void maquinaDeEscribir(string mensaje)
 
         if(contadorPuntos == 2)
         {
-            this_thread::sleep_for(chrono::seconds(2)); // Pausa más larga para saltos de línea
+            this_thread::sleep_for(chrono::seconds(2)); // Pausa mÃ¡s larga para saltos de lÃ­nea
         }
         else if (c == '.')
         {
             contadorPuntos++;
-            this_thread::sleep_for(chrono::milliseconds(50)); // Pausa estándar para otros caracteres
+            this_thread::sleep_for(chrono::milliseconds(50)); // Pausa estÃ¡ndar para otros caracteres
         }
 
         else
         {
-            this_thread::sleep_for(chrono::milliseconds(50)); // Pausa estándar para otros caracteres
+            this_thread::sleep_for(chrono::milliseconds(50)); // Pausa estÃ¡ndar para otros caracteres
         }
     }
 }
